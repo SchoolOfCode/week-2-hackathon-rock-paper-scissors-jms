@@ -2,7 +2,9 @@
 // Create all possible variables to initiate the game (playerName, playerChoice, computerChoice, currentScore and totalScore)
 // Computer choice variables are stored in an array.
 // ask players name using prompt method
-
+// Create function to play one round of rock paper scissors
+// Create variable that generates a random choice for the computer choice.
+// We are using an array containing three items (options). Create a function to select a random item from the variable each time is called.
 Call the function to run the game, initializing variables.
 Message: What’s your name? Store it in a variable and display it every round.
 Message: Would you like to play the game? If yes ask next question.
@@ -26,20 +28,41 @@ Use loop for rounds
 */
 
 
+function getComputerChoice(){
+    let pickIndex = Math.floor(Math.random() * computerChoice.length);
+    let randomChoice = computerChoice[pickIndex];
+    return randomChoice;
+}
+
+let computerChoice = ["Rock", "Paper", "Scissors"];
+
+
 
 let playerName = prompt("What is your name?");
 let playerChoice = "";
-let computerChoice = ["Rock", "Paper", "Scissors"];
+
 let currentScore = 0;
 let totalScore = 0;
 
 let startQuestion = prompt(`Would you like to play a game ${playerName}, answer Yes or No`);
-let numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`)
+let numberRounds = "";
 
 if (startQuestion === "Yes"){
     console.log("Great, Good Luck");
-}else if(startQuestion !== "Yes" || startQuestion !== "No"){
-    console.log("I dont undertand what you are trying to say!");
-}else{
+    numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`);
+    playGame()
+    }else if(startQuestion === "No"){
     console.log("You are a chicken 🐔")
+    }
+    else{
+    console.log("I don't understand what you are trying to say!");
+}
+
+function playRound(playerChoice, computerChoice){
+    
+}
+
+
+function playGame(playerChoice, computerChoice){
+
 }
