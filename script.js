@@ -5,6 +5,7 @@
 // Create function to play one round of rock paper scissors
 // Create variable that generates a random choice for the computer choice.
 // We are using an array containing three items (options). Create a function to select a random item from the variable each time is called.
+//created function with game logic for 1 round
 Call the function to run the game, initializing variables.
 Message: What’s your name? Store it in a variable and display it every round.
 Message: Would you like to play the game? If yes ask next question.
@@ -31,12 +32,12 @@ Use loop for rounds
 function getComputerChoice(){
     let pickIndex = Math.floor(Math.random() * computerChoice.length);
     let randomChoice = computerChoice[pickIndex];
-    return randomChoice;
+    console.log(actualChoice = randomChoice);
 }
 
 let computerChoice = ["Rock", "Paper", "Scissors"];
 
-
+let actualChoice = ""
 
 let playerName = prompt("What is your name?");
 let playerChoice = "";
@@ -47,11 +48,11 @@ let totalScore = 0;
 let startQuestion = prompt(`Would you like to play a game ${playerName}, answer Yes or No`);
 let numberRounds = "";
 
-if (startQuestion === "Yes"){
+if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("Great, Good Luck");
     numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`);
     playGame()
-    }else if(startQuestion === "No"){
+    }else if(startQuestion === "No" || startQuestion === "no"){
     console.log("You are a chicken 🐔")
     }
     else{
@@ -59,8 +60,18 @@ if (startQuestion === "Yes"){
 }
 
 function playRound(playerChoice, computerChoice){
-    
-}
+    if (computerChoice === playerChoice){
+        console.log("It a draw")
+    }else if(playerChoice === 'Rock' && computerChoice === 'Scissors' ||
+        playerChoice === 'Scissors' && computerChoice === 'Paper' ||
+        playerChoice === 'Paper' && computerChoice === 'Rock') {
+            console.log("You won!!!!!!!")
+        }else if(computerChoice === 'Rock' && playerChoice === 'Scissors' ||
+            computerChoice === 'Scissors' && playerChoice === 'Paper' ||
+            computerChoice === 'Paper' && playerChoice === 'Rock'){
+            console.log("You lost");
+            }
+    }
 
 
 function playGame(playerChoice, computerChoice){
