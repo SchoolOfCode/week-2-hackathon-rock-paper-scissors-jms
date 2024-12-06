@@ -9,6 +9,10 @@
 // play game function
 // created for loop to repeat rounds
 // Display total score at the end of the game.
+// Test
+//         a.
+
+
 Call the function to run the game, initializing variables.
 Message: What’s your name? Store it in a variable and display it every round.
 Message: Would you like to play the game? If yes ask next question.
@@ -47,7 +51,8 @@ let numberRounds = "";
         }
 
     function playRound(playerChoice, actualChoice){
-        if (actualChoice === playerChoice){
+        if(playerChoice === "Rock" || playerChoice === "Paper" || playerChoice === "Scissors" ){ 
+                    if (actualChoice === playerChoice){
             console.log(`It a draw        Your current score is ${currentScore}`)
         }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
             playerChoice === 'Scissors' && actualChoice === 'Paper' ||
@@ -59,8 +64,10 @@ let numberRounds = "";
                 actualChoice === 'Paper' && playerChoice === 'Rock'){
                 console.log(`You lost         Your current score is ${currentScore}`)
                 }
+        }else{
+            console.log("Its not a valid option. You loose this round due to incorrect writing");
         }
-
+    }
     function playGame(){
         playerChoice = prompt('Rock, Paper or Scissors?');
         getComputerChoice();
@@ -80,5 +87,5 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     else{
     console.log("I don't understand what you are trying to say!");
 }
-
+totalScore = currentScore;
 console.log(`Your total score is ${totalScore}`);
