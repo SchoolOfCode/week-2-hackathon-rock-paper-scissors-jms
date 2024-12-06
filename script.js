@@ -60,6 +60,7 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
 }
 
 function playRound(playerChoice, computerChoice){
+    
     if (computerChoice === playerChoice){
         console.log("It a draw")
     }else if(playerChoice === 'Rock' && computerChoice === 'Scissors' ||
