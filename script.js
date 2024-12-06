@@ -9,8 +9,9 @@
 // play game function
 // created for loop to repeat rounds
 // Display total score at the end of the game.
-// Test
-//         a.
+// Create counter for rounds and display message "this is round ....."
+// created split for how many wins, losts and draw
+//
 
 
 Call the function to run the game, initializing variables.
@@ -29,6 +30,9 @@ Alert the winner about the instant result and current score. (W,D,L should be in
 Ask the player whether they want to play again
 Use loop for rounds
 
+//Keep track of how many games have been played, as well as the number of wins, losses, and draws.
+
+//This will be deemed as complete when this information is displayed after each round.
 
 
 
@@ -43,6 +47,10 @@ let playerChoice = "";
 let startQuestion = prompt(`Would you like to play a game ${playerName}, answer Yes or No`);
 // FIX PROBLEM TAKING NULL FOR A NAME;
 let numberRounds = "";
+let roundCounter = 0;
+let drawCounter = 0;
+let winCounter = 0;
+let lostCounter = 0;
 
     function getComputerChoice(){
         let pickIndex = Math.floor(Math.random() * computerChoice.length);
@@ -51,18 +59,26 @@ let numberRounds = "";
         }
 
     function playRound(playerChoice, actualChoice){
+        roundCounter +=1;
+        console.log(`This is round ${roundCounter}`)
         if(playerChoice === "Rock" || playerChoice === "Paper" || playerChoice === "Scissors" ){ 
                     if (actualChoice === playerChoice){
             console.log(`It a draw        Your current score is ${currentScore}`)
+            drawCounter += 1;
+            console.log(`Total split: Win: ${winCounter}    Lost: ${lostCounter}   Draw: ${drawCounter}`);
         }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
             playerChoice === 'Scissors' && actualChoice === 'Paper' ||
             playerChoice === 'Paper' && actualChoice === 'Rock') {
                 currentScore++
                 console.log(`You won!!!!!!!"      Your current score is ${currentScore}`)
+                winCounter += 1;
+                console.log(`Total split: Win: ${winCounter}    Lost: ${lostCounter}   Draw: ${drawCounter}`);
             }else if(actualChoice === 'Rock' && playerChoice === 'Scissors' ||
                 actualChoice === 'Scissors' && playerChoice === 'Paper' ||
                 actualChoice === 'Paper' && playerChoice === 'Rock'){
                 console.log(`You lost         Your current score is ${currentScore}`)
+                lostCounter += 1;
+                console.log(`Total split: Win: ${winCounter}    Lost: ${lostCounter}   Draw: ${drawCounter}`)
                 }
         }else{
             console.log("Its not a valid option. You loose this round due to incorrect writing");
