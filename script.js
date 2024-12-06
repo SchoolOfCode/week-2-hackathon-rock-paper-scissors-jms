@@ -27,31 +27,47 @@ Use loop for rounds
 
 
 */
-
-
-function getComputerChoice(){
-    let pickIndex = Math.floor(Math.random() * computerChoice.length);
-    let randomChoice = computerChoice[pickIndex];
-    console.log(actualChoice = randomChoice);
-}
-
-let computerChoice = ["Rock", "Paper", "Scissors"];
-
-let actualChoice = ""
-
 let playerName = prompt("What is your name?");
-let playerChoice = "";
-
 let currentScore = 0;
 let totalScore = 0;
-
+let computerChoice = ["Rock", "Paper", "Scissors"];
+let actualChoice = ""
+let playerChoice = "";
 let startQuestion = prompt(`Would you like to play a game ${playerName}, answer Yes or No`);
+// FIX PROBLEM TAKING NULL FOR A NAME;
 let numberRounds = "";
+
+    function getComputerChoice(){
+        let pickIndex = Math.floor(Math.random() * computerChoice.length);
+        let randomChoice = computerChoice[pickIndex];
+        console.log(actualChoice = randomChoice);
+        }
+
+    function playRound(playerChoice, actualChoice){
+        if (actualChoice === playerChoice){
+            console.log("It a draw")
+        }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
+            playerChoice === 'Scissors' && actualChoice === 'Paper' ||
+            playerChoice === 'Paper' && actualChoice === 'Rock') {
+                console.log("You won!!!!!!!")
+            }else if(actualChoice === 'Rock' && playerChoice === 'Scissors' ||
+                actualChoice === 'Scissors' && playerChoice === 'Paper' ||
+                actualChoice === 'Paper' && playerChoice === 'Rock'){
+                console.log("You lost");
+                }
+        }
+
+    function playGame(){
+        playerChoice = prompt('Rock, Paper or Scissors?');
+        getComputerChoice();
+        playRound(playerChoice, actualChoice);
+    
+}
 
 if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("Great, Good Luck");
     numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`);
-    playGame()
+    playGame();
     }else if(startQuestion === "No" || startQuestion === "no"){
     console.log("You are a chicken 🐔")
     }
@@ -59,22 +75,5 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("I don't understand what you are trying to say!");
 }
 
-function playRound(playerChoice, actualChoice){
-    console.log(playerChoice, actualChoice)
-    if (actualChoice === playerChoice){
-        console.log("It a draw")
-    }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
-        playerChoice === 'Scissors' && actualChoice === 'Paper' ||
-        playerChoice === 'Paper' && actualChoice === 'Rock') {
-            console.log("You won!!!!!!!")
-        }else if(actualChoice === 'Rock' && playerChoice === 'Scissors' ||
-            actualChoice === 'Scissors' && playerChoice === 'Paper' ||
-            actualChoice === 'Paper' && playerChoice === 'Rock'){
-            console.log("You lost");
-            }
-    }
 
-
-function playGame(playerChoice, actualChoice){
-
-}
+playGame();
