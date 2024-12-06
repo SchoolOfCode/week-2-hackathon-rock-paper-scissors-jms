@@ -59,22 +59,22 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("I don't understand what you are trying to say!");
 }
 
-function playRound(playerChoice, computerChoice){
-    
-    if (computerChoice === playerChoice){
+function playRound(playerChoice, actualChoice){
+    console.log(playerChoice, actualChoice)
+    if (actualChoice === playerChoice){
         console.log("It a draw")
-    }else if(playerChoice === 'Rock' && computerChoice === 'Scissors' ||
-        playerChoice === 'Scissors' && computerChoice === 'Paper' ||
-        playerChoice === 'Paper' && computerChoice === 'Rock') {
+    }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
+        playerChoice === 'Scissors' && actualChoice === 'Paper' ||
+        playerChoice === 'Paper' && actualChoice === 'Rock') {
             console.log("You won!!!!!!!")
-        }else if(computerChoice === 'Rock' && playerChoice === 'Scissors' ||
-            computerChoice === 'Scissors' && playerChoice === 'Paper' ||
-            computerChoice === 'Paper' && playerChoice === 'Rock'){
+        }else if(actualChoice === 'Rock' && playerChoice === 'Scissors' ||
+            actualChoice === 'Scissors' && playerChoice === 'Paper' ||
+            actualChoice === 'Paper' && playerChoice === 'Rock'){
             console.log("You lost");
             }
     }
 
 
-function playGame(playerChoice, computerChoice){
+function playGame(playerChoice, actualChoice){
 
 }
