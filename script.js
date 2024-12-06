@@ -7,8 +7,8 @@
 // We are using an array containing three items (options). Create a function to select a random item from the variable each time is called.
 // created function with game logic for 1 round
 // play game function
-// created for loop to repet rounds
-
+// created for loop to repeat rounds
+// Display total score at the end of the game.
 Call the function to run the game, initializing variables.
 Message: What’s your name? Store it in a variable and display it every round.
 Message: Would you like to play the game? If yes ask next question.
@@ -73,10 +73,6 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`);
     for(let i = 1; i <= numberRounds; i++){
         playGame();
-        if(i = numberRounds){
-            totalScore = currentScore;
-            console.log(`Your total score is: ${totalScore}, WELL DONE!`);
-        }
         }
     }else if(startQuestion === "No" || startQuestion === "no"){
     console.log("You are a chicken 🐔")
@@ -85,3 +81,4 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("I don't understand what you are trying to say!");
 }
 
+console.log(`Your total score is ${totalScore}`);
