@@ -5,7 +5,10 @@
 // Create function to play one round of rock paper scissors
 // Create variable that generates a random choice for the computer choice.
 // We are using an array containing three items (options). Create a function to select a random item from the variable each time is called.
-//created function with game logic for 1 round
+// created function with game logic for 1 round
+// play game function
+// created for loop to repet rounds
+
 Call the function to run the game, initializing variables.
 Message: What’s your name? Store it in a variable and display it every round.
 Message: Would you like to play the game? If yes ask next question.
@@ -45,15 +48,16 @@ let numberRounds = "";
 
     function playRound(playerChoice, actualChoice){
         if (actualChoice === playerChoice){
-            console.log("It a draw")
+            console.log(`It a draw        Your current score is ${currentScore}`)
         }else if(playerChoice === 'Rock' && actualChoice === 'Scissors' ||
             playerChoice === 'Scissors' && actualChoice === 'Paper' ||
             playerChoice === 'Paper' && actualChoice === 'Rock') {
-                console.log("You won!!!!!!!")
+                currentScore++
+                console.log(`You won!!!!!!!"      Your current score is ${currentScore}`)
             }else if(actualChoice === 'Rock' && playerChoice === 'Scissors' ||
                 actualChoice === 'Scissors' && playerChoice === 'Paper' ||
                 actualChoice === 'Paper' && playerChoice === 'Rock'){
-                console.log("You lost");
+                console.log(`You lost         Your current score is ${currentScore}`)
                 }
         }
 
@@ -67,7 +71,13 @@ let numberRounds = "";
 if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("Great, Good Luck");
     numberRounds = prompt(`How many rounds would you like to include in your game ${playerName}`);
-    playGame();
+    for(let i = 1; i <= numberRounds; i++){
+        playGame();
+        if(i = numberRounds){
+            totalScore = currentScore;
+            console.log(`Your total score is: ${totalScore}, WELL DONE!`);
+        }
+        }
     }else if(startQuestion === "No" || startQuestion === "no"){
     console.log("You are a chicken 🐔")
     }
@@ -75,5 +85,3 @@ if (startQuestion === "Yes" || startQuestion === "yes"){
     console.log("I don't understand what you are trying to say!");
 }
 
-
-playGame();
